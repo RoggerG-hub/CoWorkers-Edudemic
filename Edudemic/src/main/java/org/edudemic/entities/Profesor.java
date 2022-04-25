@@ -1,15 +1,16 @@
 package org.edudemic.entities;
-
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
-@Table(name="estudiantes")
-public class Estudiante {
+@Table(name="profesores")
+public class Profesor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -20,6 +21,15 @@ public class Estudiante {
 	private String correo;
 	private String contraseña;
 	private Date fecha;
+	@ManyToOne
+	@JoinColumn(name="curso_id",nullable=false)
+	private Curso curso;
+	public Curso getCurso() {
+		return curso;
+	}
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
 	public Long getId() {
 		return id;
 	}
