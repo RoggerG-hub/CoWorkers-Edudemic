@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:x_rt="http://java.sun.com/jstl/xml_rt"
+	xmlns:p="http://primefaces.org/ui">
 <head>
 <meta charset="UTF-8"></meta>
 <meta name="viewport" content="with=device-with, initial-scale=1.0"></meta>
@@ -11,20 +16,31 @@
 		<div class="form">
 			<h1>REGISTRO DE PROFESOR</h1>
 			<div class="grupo">
-				<input type="text" name="" id="nombres" ></input><span
-					class="barra"></span> <label for="">Nombres</label>
+				<input type="text" name="" id="nombres"></input><span class="barra"></span>
+				<label for="">Nombres</label>
 			</div>
 			<div class="grupo">
-				<input type="text" name="" id="apellidos"></input><span class="barra"></span>
-				<label for="">Apellidos</label>
+				<input type="text" name="" id="apellidos"></input><span
+					class="barra"></span> <label for="">Apellidos</label>
 			</div>
 			<div class="grupo">
 				<input type="text" name="" id="dni"></input><span class="barra"></span>
 				<label for="">DNI</label>
 			</div>
 			<div class="grupo">
-				<input type="date" value="2022-04-28" min="2022-04-28" id="nacimiento"></input> <label
-					for="">Nacimiento</label>
+				<p:selectOneMenu id="cboCursos" required="true" effect="drop"
+					value="#{ProfesorController.curso}"
+					converter="omnifaces.SelectItemsConverter">
+					<f:selectItem itemLabel="Seleccione un curso"
+						noSelectionOption="true" itemValue="" />
+					<f:selectItems value="#{ProfesorController.cursos}" var="supplier"
+						itemLabel="#{curso.nombre}" itemValue="#{curso}" />
+				</p:selectOneMenu>
+				<label for="">Cursos</label>
+			</div>
+			<div class="grupo">
+				<input type="date" value="2022-04-28" min="2022-04-28"
+					id="nacimiento"></input> <label for="">Nacimiento</label>
 			</div>
 			<div class="grupo">
 				<input type="text" name="" id="telefono"></input><span class="barra"></span>
@@ -39,8 +55,8 @@
 				<label for="">Edad</label>
 			</div>
 			<div class="grupo">
-				<input type="text" name="" id="contraseña"></input><span class="barra"></span>
-				<label for="">Contraseña</label>
+				<input type="text" name="" id="contraseña"></input><span
+					class="barra"></span> <label for="">Contraseña</label>
 			</div>
 			<button type="submit">REGISTRAR</button>
 		</div>

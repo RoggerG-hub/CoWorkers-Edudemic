@@ -3,18 +3,18 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:x_rt="http://java.sun.com/jstl/xml_rt"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
 <body>
 
-	hola
-	<nav> <a href="profesor/registro.xhtml"> pppppp </a> </nav>
-
-	<nav> <a href="estudiante/registro.xhtml"> eeeee </a> </nav>
-
-	<nav> <a href="curso/registro.xhtml"> ccccc </a> </nav>
+	<ui:composition template="/WEB-INF/templates/master.xhtml">
+		<ui:define name="content">
+			<h:form id="frm">
+				
+			</h:form>
+		</ui:define>
+	</ui:composition>
 
 </body>
 </html>
