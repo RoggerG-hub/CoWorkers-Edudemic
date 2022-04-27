@@ -9,6 +9,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+
 import pe.edu.coworkers.business.CursoBusiness;
 import pe.edu.coworkers.entities.Curso;
 
@@ -52,6 +53,7 @@ public class CursoController implements Serializable {
 			System.out.println(curso.getNombre());
 			System.out.println(curso.getDescripcion());
 			cursoBusiness.registrarCurso(curso);
+			this.reiniciarForm();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -65,5 +67,7 @@ public class CursoController implements Serializable {
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
-
+	public void reiniciarForm() {
+		curso = new Curso();
+	}
 }
