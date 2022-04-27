@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:x_rt="http://java.sun.com/jstl/xml_rt"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="UTF-8"></meta>
+	<title>Registro de profesores</title>
+</h:head>
+<h:body>
+
+	<ui:composition template="/WEB-INF/templates/master.xhtml">
+		<ui:define name="content">
+			<h:form id="frm">
+				<p:growl id="men" />
+
+				<p:toolbar>
+					<f:facet name="right">
+						<p:commandButton value="Registrar" icon="ui-icon-disk"
+							action="#{profesorController.registrarProfesor()}" ajax="false" />
+
+					</f:facet>
+				</p:toolbar>
+
+
+				<p:panelGrid id="panGridProduct" columns="2" style="width:100%">
+					<p:outputLabel value="Nombres:" for="txtNombres" />
+					<p:inputText id="txtNombres" required="true" maxlength="45"
+						value="#{profesorController.profesor.nombres}" />
+					<p:outputLabel value="Apellidos:" for="txtApellidos" />
+					<p:inputText id="txtApellidos" required="true" maxlength="45"
+						value="#{profesorController.profesor.apellidos}" />
+					<p:outputLabel value="DNI:" for="txtDni" />
+					<p:inputText id="txtDni" required="true" maxlength="45"
+						value="#{profesorController.profesor.dni}" />
+					<p:outputLabel value="Curso" for="cboCurso" />
+					<p:selectOneMenu id="cboCurso" required="true" effect="drop"
+						value="#{profesorController.curso}"
+						converter="omnifaces.SelectItemsConverter">
+						<f:selectItem itemLabel="Seleccione un curso"
+							noSelectionOption="true" itemValue="" />
+						<f:selectItems value="#{profesorController.cursos}" var="curso"
+							itemLabel="#{curso.nombre}" itemValue="#{curso}" />
+					</p:selectOneMenu>
+					<p:outputLabel value="Fecha Nacimiento:" />
+					<input type="date" min="2000-04-28" id="nacimiento"
+						value="#{profesorController.profesor.fecha}"></input>
+					<p:outputLabel value="Telefono:" for="txtTelefono" />
+					<p:inputText id="txtTelefono" required="true" maxlength="45"
+						value="#{profesorController.profesor.telefono}" />
+					<p:outputLabel value="Correo:" for="txtCorreo" />
+					<p:inputText id="txtCorreo" required="true" maxlength="45"
+						value="#{profesorController.profesor.correo}" />
+					<p:outputLabel value="Edad:" for="txtEdad" />
+					<p:inputText id="txtEdad" required="true" maxlength="45"
+						value="#{profesorController.profesor.edad}" />
+					<p:outputLabel value="Contraseña:" for="txtContraseña" />
+					<p:inputText id="txtContraseña" required="true" maxlength="45"
+						value="#{profesorController.profesor.contraseña}" />
+
+				</p:panelGrid>
+
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

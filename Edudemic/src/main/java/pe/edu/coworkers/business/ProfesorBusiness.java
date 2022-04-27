@@ -17,17 +17,17 @@ public class ProfesorBusiness implements Serializable {
 	@Inject 
 	private ProfesorRepository profesorRepository;
 	@Transactional
-	public void Registrar(Profesor profesor) throws Exception 
+	public Long registrarProfesor(Profesor profesor) throws Exception 
 	{
-		profesorRepository.Registrar(profesor);
+		return profesorRepository.registrarProfesor(profesor);	
 	}
 	@Transactional
-	public void Actualizar(Profesor profesor) throws Exception 
+	public void actualizarProfesor(Profesor profesor) throws Exception 
 	{
-		profesorRepository.Actualizar(profesor);
+		profesorRepository.actualizarProfesor(profesor);
 	}
-	public List<Profesor> ListarProfesores() throws Exception
+	public List<Profesor> listarProfesores() throws Exception
 	{
-		return profesorRepository.ListarProfesores();
+		return profesorRepository.listarProfesores();
 	}
 }

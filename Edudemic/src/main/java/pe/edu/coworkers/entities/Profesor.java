@@ -21,6 +21,7 @@ public class Profesor {
 	private String correo;
 	private String contraseña;
 	private Date fecha;
+	private Long dni;
 	@ManyToOne
 	@JoinColumn(name="curso_id",nullable=false)
 	private Curso curso;
@@ -77,6 +78,12 @@ public class Profesor {
 	}
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+	public Long getDni() {
+		return dni;
+	}
+	public void setDni(Long dni) {
+		this.dni = dni;
 	}
 	
 }

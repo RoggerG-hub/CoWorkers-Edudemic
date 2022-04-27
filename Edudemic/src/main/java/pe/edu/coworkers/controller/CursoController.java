@@ -27,6 +27,7 @@ public class CursoController implements Serializable {
 	public void init() {
 		curso = new Curso();
 		cursos = new ArrayList<>();
+		this.listarCursos();
 	}
 
 	public void listarCursos() {
@@ -53,6 +54,7 @@ public class CursoController implements Serializable {
 			System.out.println(curso.getNombre());
 			System.out.println(curso.getDescripcion());
 			cursoBusiness.registrarCurso(curso);
+			this.listarCursos();
 			this.reiniciarForm();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

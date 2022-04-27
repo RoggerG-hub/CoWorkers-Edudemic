@@ -12,53 +12,73 @@
 <link rel="stylesheet" type="text/css" href="registro.css" />
 </head>
 <body>
+
+	<h:form id="frm">
+		<p:growl id="men" />
+		
+		<p:toolbar>
+			<f:facet name="right">
+				<p:commandButton value="Registrar" icon="ui-icon-disk"
+					action="#{profesorController.registrarProfesor()}" ajax="false" />
+
+			</f:facet>
+		</p:toolbar>
+
+	</h:form>
 	<form action="" method="POST" id="form">
 		<div class="form">
 			<h1>REGISTRO DE PROFESOR</h1>
 			<div class="grupo">
-				<input type="text" name="" id="nombres"></input><span class="barra"></span>
+				<p:inputText id="txtNombre" required="true" maxlength="45"
+					value="#{profesorController.profesor.nombres}" />
 				<label for="">Nombres</label>
 			</div>
 			<div class="grupo">
-				<input type="text" name="" id="apellidos"></input><span
-					class="barra"></span> <label for="">Apellidos</label>
+				<p:inputText id="txtApellido" required="true" maxlength="45"
+					value="#{profesorController.profesor.apellidos}" />
+				<label for="">Apellidos</label>
 			</div>
 			<div class="grupo">
-				<input type="text" name="" id="dni"></input><span class="barra"></span>
+			<p:outputLabel value="Curso" for="cboCurso" />
+			<p:selectOneMenu id="cboCurso" required="true" effect="drop"
+				value="#{profesorController.curso}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItem itemLabel="Seleccione un curso"
+					noSelectionOption="true" itemValue="" />
+				<f:selectItems value="#{profesorController.cursos}" var="curso"
+					itemLabel="#{curso.nombre}" itemValue="#{curso}" />
+			</p:selectOneMenu>
+			</div>
+			<div class="grupo">
+				<p:inputText id="txtDni" required="true" maxlength="45"
+					value="#{profesorController.profesor.dni}" />
 				<label for="">DNI</label>
 			</div>
+
 			<div class="grupo">
-				<p:selectOneMenu id="cboCursos" required="true" effect="drop"
-					value="#{ProfesorController.curso}"
-					converter="omnifaces.SelectItemsConverter">
-					<f:selectItem itemLabel="Seleccione un curso"
-						noSelectionOption="true" itemValue="" />
-					<f:selectItems value="#{ProfesorController.cursos}" var="supplier"
-						itemLabel="#{curso.nombre}" itemValue="#{curso}" />
-				</p:selectOneMenu>
-				<label for="">Cursos</label>
+				<input type="date" min="2000-04-28" id="nacimiento"
+					value="#{profesorController.profesor.fecha}"></input> <label for="">Nacimiento</label>
 			</div>
 			<div class="grupo">
-				<input type="date" value="2022-04-28" min="2022-04-28"
-					id="nacimiento"></input> <label for="">Nacimiento</label>
-			</div>
-			<div class="grupo">
-				<input type="text" name="" id="telefono"></input><span class="barra"></span>
+				<p:inputText id="txtTelefono" required="true" maxlength="45"
+					value="#{profesorController.profesor.telefono}" />
 				<label for="">Telefono</label>
 			</div>
 			<div class="grupo">
-				<input type="text" name="" id="correo"></input><span class="barra"></span>
+				<p:inputText id="txtCorreo" required="true" maxlength="45"
+					value="#{profesorController.profesor.correo}" />
 				<label for="">Correo</label>
 			</div>
 			<div class="grupo">
-				<input type="text" name="" id="edad"></input><span class="barra"></span>
+				<p:inputText id="txtEdad" required="true" maxlength="45"
+					value="#{profesorController.profesor.edad}" />
 				<label for="">Edad</label>
 			</div>
 			<div class="grupo">
-				<input type="text" name="" id="contraseña"></input><span
-					class="barra"></span> <label for="">Contraseña</label>
+				<p:inputText id="txtcontraseña" required="true" maxlength="45"
+					value="#{profesorController.profesor.contraseña}" />
+				<label for="">Contraseña</label>
 			</div>
-			<button type="submit">REGISTRAR</button>
 		</div>
 	</form>
 </body>

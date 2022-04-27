@@ -17,14 +17,15 @@ public class ProfesorRepository implements Serializable {
 	@PersistenceContext(unitName = "demoWeb")
 	private EntityManager em;
 
-	public void Registrar(Profesor profesor) throws Exception {
+	public Long registrarProfesor(Profesor profesor) throws Exception {
 		em.persist(profesor);
+		return profesor.getId();
 	}
 
-	public void Actualizar(Profesor profesor) throws Exception {
+	public void actualizarProfesor(Profesor profesor) throws Exception {
 		em.merge(profesor);
 	}
-	public List<Profesor> ListarProfesores() throws Exception 
+	public List<Profesor> listarProfesores() throws Exception 
 	{
 		List<Profesor> profesores = new ArrayList<>();
 		TypedQuery<Profesor> query = em.createQuery("FROM Profesor p",Profesor.class);
