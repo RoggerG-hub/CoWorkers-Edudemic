@@ -15,13 +15,13 @@ public class EstudianteBusiness  implements Serializable {
 	@Inject 
 	private EstudianteRepository estudianteRepository;
 	@Transactional
-	public void Registrar(Estudiante estudiante) throws Exception 
+	public Long registrarEstudiante(Estudiante estudiante) throws Exception 
 	{
-		estudianteRepository.Registrar(estudiante);
+		return estudianteRepository.registrarEstudiante(estudiante);
 	}
 	@Transactional
-	public void Actualizar(Estudiante estudiante) throws Exception 
+	public Long actualizarEstudiante(Estudiante estudiante) throws Exception 
 	{
-		estudianteRepository.Actualizar(estudiante);
+		return estudianteRepository.actualizarEstudiante(estudiante);
 	}
 }
