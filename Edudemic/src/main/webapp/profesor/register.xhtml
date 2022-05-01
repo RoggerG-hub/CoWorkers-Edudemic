@@ -44,6 +44,9 @@
 						<f:selectItems value="#{profesorController.cursos}" var="curso"
 							itemLabel="#{curso.nombre}" itemValue="#{curso}" />
 					</p:selectOneMenu>
+					<p:outputLabel value="Grado: " for="txtGrado" />
+					<p:inputText id="txtGrado" required="true" maxlength="45"
+						value="#{profesorController.profesor.grado}" />
 					<p:outputLabel value="Fecha Nacimiento:" />
 					<input type="date" min="2000-04-28" id="nacimiento"
 						value="#{profesorController.profesor.fecha}"></input>
