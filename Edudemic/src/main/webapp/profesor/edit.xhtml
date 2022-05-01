@@ -16,40 +16,50 @@
 				<p:toolbar>
 					<f:facet name="right">
 						<p:commandButton value="Guardar" icon="ui-icon-disk" 
-						action="#{estudianteController.registrarEstudiante()}" ajax="false"/>
+						action="#{profesorController.registrarProfesor()}" ajax="false"/>
 
 						<p:commandButton value="Regresar" icon="ui-icon-disk"
-						  action="#{estudianteController.regresarLista()}"
+						  action="#{profesorController.listProfesor()}"
 						  immediate="true"
 						  ajax="false"/>
 					</f:facet>
 				</p:toolbar>
 
-				<p:panelGrid id="panGridProduct" columns="2" style="width:100%">
+
+			<p:panelGrid id="panGridProduct" columns="2" style="width:100%">
 					<p:outputLabel value="Nombres:" for="txtNombres" />
 					<p:inputText id="txtNombres" required="true" maxlength="45"
-						value="#{estudianteController.estudiante.nombres}" />
+						value="#{profesorController.profesor.nombres}" />
 					<p:outputLabel value="Apellidos:" for="txtApellidos" />
 					<p:inputText id="txtApellidos" required="true" maxlength="45"
-						value="#{estudianteController.estudiante.apellidos}" />
+						value="#{profesorController.profesor.apellidos}" />
 					<p:outputLabel value="DNI:" for="txtDni" />
 					<p:inputText id="txtDni" required="true" maxlength="45"
-						value="#{estudianteController.estudiante.dni}" />
+						value="#{profesorController.profesor.dni}" />
+					<p:outputLabel value="Curso" for="cboCurso" />
+					<p:selectOneMenu id="cboCurso" required="true" effect="drop"
+						value="#{profesorController.curso}"
+						converter="omnifaces.SelectItemsConverter">
+						<f:selectItem itemLabel="Seleccione un curso"
+							noSelectionOption="true" itemValue="" />
+						<f:selectItems value="#{profesorController.cursos}" var="curso"
+							itemLabel="#{curso.nombre}" itemValue="#{curso}" />
+					</p:selectOneMenu>
 					<p:outputLabel value="Fecha Nacimiento:" />
 					<input type="date" min="2000-04-28" id="nacimiento"
-						value="#{estudianteController.estudiante.fecha}"></input>
+						value="#{profesorController.profesor.fecha}"></input>
 					<p:outputLabel value="Telefono:" for="txtTelefono" />
 					<p:inputText id="txtTelefono" required="true" maxlength="45"
-						value="#{estudianteController.estudiante.telefono}" />
+						value="#{profesorController.profesor.telefono}" />
 					<p:outputLabel value="Correo:" for="txtCorreo" />
 					<p:inputText id="txtCorreo" required="true" maxlength="45"
-						value="#{estudianteController.estudiante.correo}" />
+						value="#{profesorController.profesor.correo}" />
 					<p:outputLabel value="Edad:" for="txtEdad" />
 					<p:inputText id="txtEdad" required="true" maxlength="45"
-						value="#{estudianteController.estudiante.edad}" />
+						value="#{profesorController.profesor.edad}" />
 					<p:outputLabel value="Contraseña:" for="txtContraseña" />
 					<p:inputText id="txtContraseña" required="true" maxlength="45"
-						value="#{estudianteController.estudiante.contraseña}" />
+						value="#{profesorController.profesor.contraseña}" />
 
 				</p:panelGrid>
 				<br></br>

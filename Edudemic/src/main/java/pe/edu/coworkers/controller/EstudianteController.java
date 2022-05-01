@@ -61,21 +61,27 @@ public class EstudianteController implements Serializable {
 	public String registrarEstudiante() {
 		String vista = "";
 		try {
-			System.out.println("registrarProfesor");
-			System.out.println(estudiante.getId());
-			System.out.println(estudiante.getNombres());
-			System.out.println(estudiante.getApellidos());
-			System.out.println(estudiante.getEdad());
-			System.out.println(estudiante.getContraseña());
-			System.out.println(estudiante.getFecha());
-			System.out.println(estudiante.getTelefono());
-			System.out.println(estudiante.getCorreo());
-			estudianteBusiness.registrarEstudiante(estudiante);
+			if(estudiante.getId()!=null) 
+			{
+				estudianteBusiness.actualizarEstudiante(estudiante);
+				Message.messageInfo("Estudiante actualizado exitosamente");
+			}else 
+			{
+				estudianteBusiness.registrarEstudiante(estudiante);
+				Message.messageInfo("Estudiante guardado exitosamente");
+
+			}
+			this.estudiantesTodos();
 			this.reiniciarForm();
 		} catch (Exception e) {
+			Message.messageError("Error al registrar:" + e.getMessage());
 
 		}
 		return vista;
+	}
+	public String regresarLista() 
+	{
+		return "list.xhtml";
 	}
 	public void reiniciarForm() {
 		estudiante = new Estudiante();
