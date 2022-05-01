@@ -8,7 +8,8 @@
 <h:head>
 	<meta charset="UTF-8"></meta>
 	<title>Registro de cursos</title>
-	<link rel="stylesheet" type="text/css" href="registro.css" />
+	<link href="/curso/estilo.css" rel="stylesheet" type="text/css"/>
+	
 </h:head>
 <h:body>
 
@@ -17,23 +18,20 @@
 			<h:form id="frm">
 				<p:growl id="men" />
 
-				<p:toolbar>
-					<f:facet name="right">
+				<p:toolbar >
+					<f:facet name="right" >
 						<p:commandButton value="Registrar" icon="ui-icon-disk"
-							action="#{cursoController.registrarCurso()}" ajax="false" />
-
+							action="#{cursoController.registrarCurso()}"  ajax="false" />
 					</f:facet>
 				</p:toolbar>
 
-
-				<p:panelGrid id="panGridProduct" columns="2" style="width:100%">
-					<p:outputLabel value="Nombre:" for="txtNombre" />
-					<p:inputText id="txtNombre" required="true" maxlength="45"
+				<p:panelGrid id="panGridProduct" columns="2" style="width: 100%">
+					<p:outputLabel value="Nombre:" for="txtNombre" class="txtCaja"/>
+					<p:inputText  id="txtNombre" required="true" maxlength="45" 
 						value="#{cursoController.curso.nombre}" />
-					<p:outputLabel value="Descripcion" for="txtDescripcion" />
+					<p:outputLabel value="Descripcion" for="txtDescripcion" class="txtCaja"/>
 					<p:inputText id="txtDescripcion" required="true" maxlength="45"
 						value="#{cursoController.curso.descripcion}" />
-				
 				</p:panelGrid>
 
 

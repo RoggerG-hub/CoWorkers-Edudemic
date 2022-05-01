@@ -29,8 +29,16 @@ public class EstudianteRepository implements Serializable {
 	public List<Estudiante> listarEstudiantes() throws Exception 
 	{
 		List<Estudiante> estudiantes = new ArrayList<>();
-		TypedQuery<Estudiante> query = em.createQuery("SELECT e FROM Curso e",Estudiante.class);
+		TypedQuery<Estudiante> query = em.createQuery("SELECT e FROM Estudiante e",Estudiante.class);
 		estudiantes = query.getResultList();
 		return estudiantes;
 	}
+	public Estudiante buscarEstudiante(String dni, String password) throws Exception 
+	{
+		
+		Estudiante estudiante = new Estudiante();
+		TypedQuery<Estudiante> query = em.createQuery("FROM Estudiante e WHERE e.dni LIKE dni and e.contraseña LIKE password",Estudiante.class);
+		estudiante = query.getSingleResult();
+		return estudiante;
+	}	
 }

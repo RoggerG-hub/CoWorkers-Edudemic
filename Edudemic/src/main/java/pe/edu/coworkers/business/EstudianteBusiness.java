@@ -1,6 +1,7 @@
 package pe.edu.coworkers.business;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -24,4 +25,15 @@ public class EstudianteBusiness  implements Serializable {
 	{
 		return estudianteRepository.actualizarEstudiante(estudiante);
 	}
+	public Estudiante buscarEstudiante(String dni, String password) throws Exception 
+	{
+		return estudianteRepository.buscarEstudiante(dni, password);
+		
+	}
+	public List<Estudiante> listarEstudiantes() throws Exception 
+	{
+		return estudianteRepository.listarEstudiantes();
+		
+	}
+	
 }
