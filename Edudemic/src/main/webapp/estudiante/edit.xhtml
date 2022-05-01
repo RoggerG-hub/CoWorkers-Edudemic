@@ -15,13 +15,13 @@
 
 				<p:toolbar>
 					<f:facet name="right">
-						<p:commandButton value="Guardar" icon="ui-icon-disk" 
-						action="#{estudianteController.registrarEstudiante()}" ajax="false"/>
+						<p:commandButton value="Guardar" icon="ui-icon-disk"
+							action="#{estudianteController.registrarEstudiante()}"
+							ajax="false" />
 
 						<p:commandButton value="Regresar" icon="ui-icon-disk"
-						  action="#{estudianteController.regresarLista()}"
-						  immediate="true"
-						  ajax="false"/>
+							action="#{estudianteController.regresarLista()}" immediate="true"
+							ajax="false" />
 					</f:facet>
 				</p:toolbar>
 
@@ -35,9 +35,8 @@
 					<p:outputLabel value="DNI:" for="txtDni" />
 					<p:inputText id="txtDni" required="true" maxlength="45"
 						value="#{estudianteController.estudiante.dni}" />
-					<p:outputLabel value="Fecha Nacimiento:" />
-					<input type="date" min="2000-04-28" id="nacimiento"
-						value="#{estudianteController.estudiante.fecha}"></input>
+					<p:outputLabel value="Fecha Nacimiento" />
+					<p:calendar value="#{estudianteController.estudiante.fecha}"></p:calendar>
 					<p:outputLabel value="Telefono:" for="txtTelefono" />
 					<p:inputText id="txtTelefono" required="true" maxlength="45"
 						value="#{estudianteController.estudiante.telefono}" />

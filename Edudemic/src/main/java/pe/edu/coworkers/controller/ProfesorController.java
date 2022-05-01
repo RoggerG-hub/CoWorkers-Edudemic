@@ -97,6 +97,7 @@ public class ProfesorController  implements Serializable {
 		return view;
 	}
 	public String listProfesor() {
+		reiniciarForm();
 		return "list.xhtml";
 	}
 	public Profesor getProfesor() {

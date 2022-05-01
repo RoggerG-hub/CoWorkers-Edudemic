@@ -48,8 +48,7 @@
 					<p:inputText id="txtGrado" required="true" maxlength="45"
 						value="#{profesorController.profesor.grado}" />
 					<p:outputLabel value="Fecha Nacimiento:" />
-					<input type="date" min="2000-04-28" id="nacimiento"
-						value="#{profesorController.profesor.fecha}"></input>
+					<p:calendar value="#{profesorController.profesor.fecha}"></p:calendar>
 					<p:outputLabel value="Telefono:" for="txtTelefono" />
 					<p:inputText id="txtTelefono" required="true" maxlength="45"
 						value="#{profesorController.profesor.telefono}" />
