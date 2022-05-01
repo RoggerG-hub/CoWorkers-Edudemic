@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="mentorias")
@@ -19,9 +18,6 @@ public class Mentoria {
 	private int hInicio;
 	private int hFin;
 	private Date fecha;
-	@OneToOne
-	@JoinColumn(name="estudiante_id")
-	private Estudiante estudiante;
 	@ManyToOne
 	@JoinColumn(name="profesor_id",nullable=false)
 	private Profesor profesor;
@@ -56,12 +52,7 @@ public class Mentoria {
 		this.fecha = fecha;
 	}
 
-	public Estudiante getEstudiante() {
-		return estudiante;
-	}
-	public void setEstudiante(Estudiante estudiante) {
-		this.estudiante = estudiante;
-	}
+
 	public Profesor getProfesor() {
 		return profesor;
 	}
