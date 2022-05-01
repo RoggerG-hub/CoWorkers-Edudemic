@@ -6,14 +6,12 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title><ui:insert name="pageTitle">Programacion en Web</ui:insert></title>
-	<link href="/WEB-INF/templates/styles.css" rel="stylesheet"
-		type="text/css" />
 </h:head>
 
 <body>
 	<ui:insert name="header">
 		<h:form>
-			<p:menubar autoDisplay="false" styleClass="cajas">
+			<p:menubar autoDisplay="false">
 				<p:submenu label="Edudemic" icon="ui-icon-pencil">
 					<p:menuitem icon="ui-icon-document" value="Cursos"
 						url="/curso/registro.xhtml" />
@@ -21,14 +19,11 @@
 						url="/estudiante/register.xhtml" />
 					<p:menuitem icon="ui-icon-document" value="Profesores"
 						url="/profesor/register.xhtml" />
-					<p:menuitem icon="ui-icon-document" value="Login"
-						url="/login/log.xhtml" />
-					<p:menuitem icon="ui-icon-document" value="Editar Estudiantes"
-						url="/estudiante/list.xhtml" />
-					<p:menuitem icon="ui-icon-document" value="Editar Profesores"
-						url="/profesor/list.xhtml" />
+					<p:menuitem icon="ui-icon-document" value="Crear foro"
+						url="/foro/foro.xhtml" />
 				</p:submenu>
 			</p:menubar>
+			
 		</h:form>
 	</ui:insert>
 
@@ -37,9 +32,8 @@
 	</ui:insert>
 
 
-	<ui:insert name="footer">
-		<div>Copyright © Edudemic, 2022. Todos los derechos reservados |
-			Todos los derechos reservados | info@edudemic.com</div>
+	<ui:insert name="footer" style="color: #303F9F">
+		<div >Copyright © Edudemic, 2022. Todos los derechos reservados | Todos los derechos reservados | info@edudemic.com</div>
 	</ui:insert>
 </body>
 

@@ -9,13 +9,10 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.primefaces.event.SelectEvent;
-
 import pe.edu.coworkers.business.CursoBusiness;
 import pe.edu.coworkers.business.ProfesorBusiness;
 import pe.edu.coworkers.entities.Curso;
 import pe.edu.coworkers.entities.Profesor;
-import pe.edu.coworkers.util.Message;
 
 @Named
 @SessionScoped
@@ -26,7 +23,6 @@ public class ProfesorController  implements Serializable {
 	@Inject 
 	private CursoBusiness cursoBusiness;
 	private Profesor profesor;
-	private Profesor profesorSelected;
 	private List<Profesor> profesores;
 	private Curso curso;
 	private List<Curso> cursos;
@@ -37,26 +33,24 @@ public class ProfesorController  implements Serializable {
 		profesores=new ArrayList<>();
 		curso = new Curso();
 		cursos = new ArrayList<>();
-		profesorSelected = new Profesor();
 		listaCursos();
-		profesoresTodos();
 	}	
 	public String registrarProfesor() 
 	{
 		String vista = "";
 		try {
-			if (profesor.getId() != null) {// update
-				profesor.setCurso(curso);
-				profesorBusiness.actualizarProfesor(profesor);
-				Message.messageInfo("Registro actualizado exitosamente");
-
-			} else {// save
-				
-				profesor.setCurso(curso);
-				profesorBusiness.registrarProfesor(profesor);
-				Message.messageInfo("Registro guardado exitosamente");
-			}	
-			this.profesoresTodos();
+			System.out.println("registrarProfesor");
+			System.out.println(profesor.getId());
+			System.out.println(profesor.getNombres());
+			System.out.println(profesor.getApellidos());
+			System.out.println(profesor.getEdad());
+			System.out.println(profesor.getContraseña());
+			System.out.println(profesor.getCurso());
+			System.out.println(profesor.getFecha());
+			System.out.println(profesor.getTelefono());
+			System.out.println(profesor.getCorreo());
+			profesor.setCurso(curso);
+			profesorBusiness.registrarProfesor(profesor);
 			this.reiniciarForm();
 		} catch (Exception e) {
 		
@@ -70,34 +64,6 @@ public class ProfesorController  implements Serializable {
 			// TODO: handle exception
 		}
 
-	}
-	public void profesoresTodos() {
-		try {
-			this.profesores=profesorBusiness.listarProfesores();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public String editProfesor() {
-		String view = "";
-		try {
-			if (this.profesorSelected != null) {
-				this.profesor = profesorSelected;
-				this.cursos = cursoBusiness.listarCursos();
-				view = "/profesor/edit";
-			} else {
-				Message.messageInfo("Debe seleccionar un curso");
-			}
-
-		} catch (Exception e) {
-			Message.messageError("Error:" + e.getMessage());
-		}
-
-		return view;
-	}
-	public String listProfesor() {
-		return "list.xhtml";
 	}
 	public Profesor getProfesor() {
 		return profesor;
@@ -125,15 +91,6 @@ public class ProfesorController  implements Serializable {
 	}
 	public void setCursos(List<Curso> cursos) {
 		this.cursos = cursos;
-	}
-	public void selectProduct(SelectEvent e) {
-		this.profesorSelected = (Profesor) e.getObject();
-	}
-	public Profesor getProfesorSelected() {
-		return profesorSelected;
-	}
-	public void setProfesorSelected(Profesor profesorSelected) {
-		this.profesorSelected = profesorSelected;
 	}
 	
 }
