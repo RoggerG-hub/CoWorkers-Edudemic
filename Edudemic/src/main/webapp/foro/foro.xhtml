@@ -20,12 +20,15 @@
 					<f:facet name="right">
 						<p:commandButton value="Crear" icon="ui-icon-disk"
 							action="#{foroController.registrarForo()}" ajax="false" />
-
+						<p:commandButton value="Nuevo comentario" icon="ui-icon-disk"
+			    		 action="#{comentarioController.newComentario()}"
+			    		 ajax="false"
+			    		/>
 					</f:facet>
 				</p:toolbar>
 
 
-				<p:panelGrid id="panGridProduct" columns="2" style="width:100%">
+				<p:panelGrid id="panGridForo" columns="2" style="width:100%">
 					<p:outputLabel value="Titulo:" for="txtTitulo" />
 					<p:inputText id="txtTitulo" required="true" maxlength="45"
 						value="#{foroController.foro.titulo}" />
@@ -41,8 +44,9 @@
 						converter="omnifaces.SelectItemsConverter">
 						<f:selectItem itemLabel="Seleccione un estudiante"
 							noSelectionOption="true" itemValue="" />
-						<f:selectItems value="#{foroController.estudiantes}" var="estudiante"
-							itemLabel="#{estudiante.nombres}" itemValue="#{estudiante}" />
+						<f:selectItems value="#{foroController.estudiantes}"
+							var="estudiante" itemLabel="#{estudiante.nombres}"
+							itemValue="#{estudiante}" />
 					</p:selectOneMenu>
 				</p:panelGrid>
 

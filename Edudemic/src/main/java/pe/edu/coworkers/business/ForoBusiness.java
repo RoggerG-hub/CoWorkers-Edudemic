@@ -29,4 +29,7 @@ public class ForoBusiness implements Serializable{
 	{
 		return foroRepository.listarForos();
 	}
+	public List<Foro> getAllForos()throws Exception{
+		return foroRepository.findAll();
+	}
 }

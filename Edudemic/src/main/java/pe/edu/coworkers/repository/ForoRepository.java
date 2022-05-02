@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+
 import pe.edu.coworkers.entities.Foro;
 
 @Named
@@ -33,5 +34,11 @@ public class ForoRepository implements Serializable {
 		return foros;
 	}	
 		
-		
+	public List<Foro> findAll()throws Exception{
+		List<Foro> foros=new ArrayList<>();	
+		//SELECT s FROM Supplier s ==> JPQL Java Persistence Query Language
+		TypedQuery<Foro> query=em.createQuery("SELECT f FROM Foro f", Foro.class);
+		foros=query.getResultList();		
+		return foros;
+	}
 }
