@@ -18,7 +18,12 @@ public class CalificacionBusiness implements Serializable {
 	@Transactional
 	public Long registrarCalificacion(Calificacion calificacion) throws Exception 
 	{
-		return calificacionRepository.registrarCalificacionLong(calificacion);	
+		return calificacionRepository.registrarCalificacion(calificacion);	
+	}
+	@Transactional
+	public void actualizarCalificacion(Calificacion calificacion) throws Exception 
+	{
+		calificacionRepository.actualizarCalificacion(calificacion);
 	}
 	public List<Calificacion> listarCalificaciones() throws Exception
 	{

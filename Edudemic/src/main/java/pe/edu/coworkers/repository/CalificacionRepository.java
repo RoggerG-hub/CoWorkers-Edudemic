@@ -16,9 +16,12 @@ public class CalificacionRepository implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@PersistenceContext(unitName = "demoWeb")
 	private EntityManager em;
-	public Long registrarCalificacionLong(Calificacion calificacion) throws Exception {
+	public Long registrarCalificacion(Calificacion calificacion) throws Exception {
 		em.persist(calificacion);
 		return calificacion.getId();
+	}
+	public void actualizarCalificacion(Calificacion calificacion) throws Exception {
+		em.merge(calificacion);
 	}
 	public List<Calificacion> listarCalificaciones() throws Exception 
 	{
