@@ -32,5 +32,6 @@ public class ProfesorRepository implements Serializable {
 		profesores = query.getResultList();
 		return profesores;
 	}
+	
 
 }

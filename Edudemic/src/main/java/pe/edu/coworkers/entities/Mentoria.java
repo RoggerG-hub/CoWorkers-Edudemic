@@ -1,4 +1,5 @@
 package pe.edu.coworkers.entities;
+import java.sql.Time;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -15,9 +16,10 @@ public class Mentoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String enlace;
-	private int hInicio;
-	private int hFin;
+	private String hInicio;
+	private String hFin;
 	private Date fecha;
+	
 	@ManyToOne
 	@JoinColumn(name="profesor_id",nullable=false)
 	private Profesor profesor;
@@ -33,16 +35,16 @@ public class Mentoria {
 	public void setEnlace(String enlace) {
 		this.enlace = enlace;
 	}
-	public int gethInicio() {
+	public String gethInicio() {
 		return hInicio;
 	}
-	public void sethInicio(int hInicio) {
+	public void sethInicio(String hInicio) {
 		this.hInicio = hInicio;
 	}
-	public int gethFin() {
+	public String gethFin() {
 		return hFin;
 	}
-	public void sethFin(int hFin) {
+	public void sethFin(String hFin) {
 		this.hFin = hFin;
 	}
 	public Date getFecha() {

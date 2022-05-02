@@ -14,13 +14,16 @@ import pe.edu.coworkers.repository.MentoriaRepository;
 @Named
 public class MentoriaBusiness implements Serializable{
 	private static final long serialVersionUID = 1L;
+	
 	@Inject
 	private MentoriaRepository mentoriaRepository;
+	
 	@Transactional
 	public Long registrarMentoria(Mentoria mentoria) throws Exception {
 		return mentoriaRepository.registrarMentoria(mentoria);
 	}
-	public List<Mentoria> listarCursos() throws Exception {
+	public List<Mentoria> listarMentoria() throws Exception {
 		return mentoriaRepository.listarMentorias();
 	}
+	
 }

@@ -24,7 +24,7 @@ public class MentoriaRepository implements Serializable{
 	public List<Mentoria> listarMentorias () throws Exception 
 	{
 		List<Mentoria> mentorias = new ArrayList<>();
-		TypedQuery<Mentoria> query = em.createQuery("SELECT m FROM Mentoria m",Mentoria.class);
+		TypedQuery<Mentoria> query = em.createQuery("FROM Mentoria m",Mentoria.class);
 		mentorias = query.getResultList();
 		return mentorias;
 	}

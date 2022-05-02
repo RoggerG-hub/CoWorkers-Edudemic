@@ -22,7 +22,6 @@ public class Profesor {
 	private String contraseña;
 	private Date fecha;
 	private Long dni;
-	private int grado;
 	@ManyToOne
 	@JoinColumn(name="curso_id",nullable=false)
 	private Curso curso;
@@ -37,13 +36,6 @@ public class Profesor {
 	}
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
-	public int getGrado() {
-		return grado;
-	}
-	public void setGrado(int grado) {
-		this.grado = grado;
 	}
 	public String getNombres() {
 		return nombres;

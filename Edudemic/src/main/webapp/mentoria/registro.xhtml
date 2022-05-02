@@ -25,12 +25,37 @@
 				</p:toolbar>
 
 				<p:panelGrid id="panGridProduct" columns="2" style="width: 100%">
-					<p:outputLabel value="Nombre:" for="txtNombre" class="txtCaja"/>
-					<p:inputText  id="txtNombre" required="true" maxlength="45" 
-						value="#{cursoController.curso.nombre}" />
-					<p:outputLabel value="Descripcion" for="txtDescripcion" class="txtCaja"/>
-					<p:inputText id="txtDescripcion" required="true" maxlength="45"
-						value="#{cursoController.curso.descripcion}" />
+					
+					<p:outputLabel value="Enlace:" for="txtNombres" />
+					<p:inputText id="txtNombres" required="true" maxlength="45"
+						value="#{mentoriaController.mentoria.enlace}" />	
+			 
+              
+                       
+					<p:outputLabel value="Profesor" for="cboCurso" />
+					<p:selectOneMenu id="cboCurso" required="true" effect="drop"
+						value="#{mentoriaController.profesor}"
+						converter="omnifaces.SelectItemsConverter">
+						<f:selectItem itemLabel="Seleccione un profesor"
+							noSelectionOption="true" itemValue="" />
+						<f:selectItems value="#{mentoriaController.profesores}" var="profesor"
+							itemLabel="#{profesor.id}" itemValue="#{profesor}" />
+						
+					</p:selectOneMenu>
+					
+					
+					<p:outputLabel value="Fecha:" />
+				   <p:calendar value="#{mentoriaController.mentoria.fecha}"></p:calendar>	
+						<p:outputLabel value="Hora Inicio:" />
+					<input type="time" 
+						value="#{mentoriaController.mentoria.hInicio}"></input>
+					<p:outputLabel value="Hora Fin:" />
+					<input type="time" 
+						value="#{mentoriaController.mentoria.hFin}"></input>
+					
+	
+					
+					
 				</p:panelGrid>
 
 
